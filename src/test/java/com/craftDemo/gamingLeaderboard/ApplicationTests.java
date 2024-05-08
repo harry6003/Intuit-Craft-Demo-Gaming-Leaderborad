@@ -14,6 +14,6 @@ class ApplicationTests {
 
 	@Test
 	void contextLoads() {
-		assertNotNull(application, "The Spring Boot application context should not be null");
+		assertNotNull(application, "The Spring Boot application context should not be null ");
 	}
 }
