@@ -29,10 +29,10 @@ public class cacheServiceImpl implements cacheService<playerScore> {
                     minHeap.add(score);
                     playerToScore.put(score.getPlayerId(), score);
                 } else {
-                    if (score.getScore() > minHeap.peek().getScore()) {
+                    if (score.getScore() > (minHeap.peek() != null ? minHeap.peek().getScore() : 0)) {
                         playerScore removedScore = minHeap.poll();
                         minHeap.add(score);
-                        playerToScore.remove(removedScore.getPlayerId());
+                        playerToScore.remove(removedScore != null ? removedScore.getPlayerId() : null);
                         playerToScore.put(score.getPlayerId(), score);
                     }
                 }
@@ -60,10 +60,10 @@ public class cacheServiceImpl implements cacheService<playerScore> {
                 minHeap.add(score);
                 playerToScore.put(score.getPlayerId(), score);
             } else {
-                if (score.getScore() > minHeap.peek().getScore()) {
+                if (score.getScore() > (minHeap.peek() != null ? minHeap.peek().getScore() : 0)) {
                     playerScore removedScore = minHeap.poll();
                     minHeap.add(score);
-                    playerToScore.remove(removedScore.getPlayerId());
+                    playerToScore.remove(removedScore != null ? removedScore.getPlayerId() : null);
                     playerToScore.put(score.getPlayerId(), score);
                 }
             }
